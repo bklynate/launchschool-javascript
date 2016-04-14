@@ -31,4 +31,11 @@ while (i < 15) {
   i += 1;
 }
 
-$("[name='first_name']");
+//Jquery, use double quotes for strings
+//$("[name='first_name']");
+
+// multiple definition
+
+var first_name = "Shane",
+    last_name = "Riley",
+    dogs = ["Josie", "Libby"];
