@@ -152,3 +152,30 @@ var index = phone.indexOf("-");
 if (fact.substring(10, 15) === "prime") {
   alert(fact);
 }
+
+var data = "name|phone|address";
+var val = data.substring(5,10);
+console.log("Substring is " + val);
+val = data.substring(5);
+console.log("Substring is " + val);
+val = data.split("|");
+console.log("Split array is ", val);
+
+function Duck(sound) {
+  this.sound = sound;
+  this.quack = function() { console.log(this.sound); }
+}
+
+var toy = new Duck("quack quack");
+toy.quack();
+
+console.log(typeof toy);
+console.log(toy instanceof Duck);
+
+console.log(typeof Infinity);
+console.log(typeof null);
+
+var x = "13",
+    y = 9;
+
+console.log(x + y);
