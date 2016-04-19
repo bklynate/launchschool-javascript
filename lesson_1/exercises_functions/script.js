@@ -35,7 +35,7 @@ function fizzBuzz(max) {
   for (i = 0; i < max; i++) {
     msg = "";
     if (i % 3 == 0) { msg += "Fizz"; }
-    if (i % 5 == 0) { msg += "Buzz" ;}
+    if (i % 5 == 0) { msg += "Buzz"; }
     console.log(msg || i);
   }
 }
