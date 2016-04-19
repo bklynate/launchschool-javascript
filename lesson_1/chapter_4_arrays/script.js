@@ -30,23 +30,58 @@ var scores = [60, 50, 60, 58, 54,
               31, 57, 52, 44, 18,
               41, 53, 55, 61, 51, 44];
 
+var costs = [ .25, .27, .25, .25, .25, .25,
+              .33, .31, .25, .29, .27, .22,
+              .31, .25, .25, .33, .21, .25,
+              .25, .25, .28, .25, .24, .22,
+              .20, .25, .30, .25, .24, .25,
+              .25, .25, .27, .25, .26, .29];
+
 function generateReport(scores) {
+  var max = printReportAndGetHighScore(scores);
+  var max_solutions = getBestSolutions(scores, max);
+  var costEffectiveSolution = getMostCostEffectiveSolution(scores, costs);
+
+  console.log("Bubble tests: " + scores.length);
+  console.log("Highest bubble score: " + max);
+  console.log("Solutions with highest bubble score: ", max_solutions);
+  console.log("Best cost effectiveness: #" + costEffectiveSolution);
+}
+
+function printReportAndGetHighScore(scores) {
   var max = 0;
-  var max_solutions = [];
+
   for (var i = 0; i < scores.length; i++) {
     var score = scores[i];
     console.log("Bubble solution #" + i + " score: " + score);
-    if (score > max) {
-      max = score;
-      max_solutions = [i];
-    } else if (score == max) {
-      max_solutions = max_solutions.concat(i);
+    if (score >= max) { max = score; }
+  }
+
+  return max;
+}
+
+function getMostCostEffectiveSolution(scores, costs) {
+  var bestRatioSolution = 0;
+  var bestRatio = 0;
+  for (var i = 0; i < scores.length; i++) {
+    var ratio = scores[i] / costs[i];
+    if (ratio > bestRatio) {
+      bestRatioSolution = i;
+      bestRatio = ratio;
     }
   }
 
-  console.log("Bubble tests: " + i);
-  console.log("Highest bubble score: " + max);
-  console.log("Solutions with highest bubble score: ", max_solutions);
+  return bestRatioSolution;
+}
+
+function getBestSolutions(scores, max) {
+  var max_solutions = []
+  for (var i = 0; i < scores.length; i++) {
+    var score = scores[i];
+    if (score == max) { max_solutions.push(i); }
+  }
+
+  return max_solutions;
 }
 
 generateReport(scores);
