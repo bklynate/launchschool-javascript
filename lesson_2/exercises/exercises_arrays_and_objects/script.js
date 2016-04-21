@@ -89,3 +89,14 @@ var people = {
 
 people.fullName(father);
 people.rollCall();
+
+function dateSuffix(date) {
+  var msg = String(date);
+
+  if (date == 1) { msg += "st" }
+  else if (date == 2) { msg += "nd" }
+  else if (date == 3) { msg += "rd" }
+  else { msg += "th" }
+
+  return msg;
+}
