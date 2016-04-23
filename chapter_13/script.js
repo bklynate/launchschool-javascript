@@ -35,39 +35,68 @@
 // rosie.reportError(); robby.reportError(); robby.spillWater(); rosie.reportError(); robby.reportError();
 // console.log(robby.hasOwnProperty("errorMessage")); console.log(rosie.hasOwnProperty("errorMessage"));
 
-function Dog(name, breed, weight) {
+// function Dog(name, breed, weight) {
+//   this.name = name;
+//   this.breed = breed;
+//   this.weight = weight;
+// }
+
+// Dog.prototype.species = "Canine";
+// Dog.prototype.bark = function() { console.log("Woof!"); }
+// Dog.prototype.run = function() { console.log("Run!"); }
+// Dog.prototype.wag = function() { console.log("Wag!"); }
+
+// function ShowDog(name, breed, weight, handler) {
+//   this.name = name;
+//   this.breed = breed;
+//   this.weight = weight;
+//   this.handler = handler;
+// }
+
+// ShowDog.prototype = new Dog();
+
+// ShowDog.prototype.league = "Webville";
+
+// ShowDog.prototype.stack = function() { console.log("Stack"); }
+// ShowDog.prototype.bait = function() { console.log("Bait"); }
+// ShowDog.prototype.gait = function(kind) { console.log(kind + "ing"); }
+// ShowDog.prototype.groom = function() { console.log("Groom"); }
+
+// var scotty = new ShowDog("Scotty", "Scottish Terrier", 15, "Cookie");
+
+// scotty.stack();
+// scotty.bark();
+// scotty.groom();
+// scotty.gait("Canter");
+
+// console.log(scotty.league);
+// console.log(scotty.species);
+
+function SpaceRobot(name, year, owner, homePlanet) {
   this.name = name;
-  this.breed = breed;
-  this.weight = weight;
+  this.year = year;
+  this.owner = owner;
+  this.homePlanet = homePlanet;
 }
 
-Dog.prototype.species = "Canine";
-Dog.prototype.bark = function() { console.log("Woof!"); }
-Dog.prototype.run = function() { console.log("Run!"); }
-Dog.prototype.wag = function() { console.log("Wag!"); }
+SpaceRobot.prototype = new Robot();
 
-function ShowDog(name, breed, weight, handler) {
-  this.name = name;
-  this.breed = breed;
-  this.weight = weight;
-  this.handler = handler;
+SpaceRobot.prototype.speak = function() {
+  alert(this.name + " says Sir, If I may venture an opinion...");
 }
 
-ShowDog.prototype = new Dog();
+SpaceRobot.prototype.pilot = function() {
+  alert(this.name + " says Thrusters? Are they important?")
+}
 
-ShowDog.prototype.league = "Webville";
+var c3po = new SpaceRobot("C3PO", 1977, "Luke Skywalker", "Tatooine");
 
-ShowDog.prototype.stack = function() { console.log("Stack"); }
-ShowDog.prototype.bait = function() { console.log("Bait"); }
-ShowDog.prototype.gait = function(kind) { console.log(kind + "ing"); }
-ShowDog.prototype.groom = function() { console.log("Groom"); }
+c3po.speak();
+c3po.pilot();
+console.log(c3po.name + " was made by " + c3po.maker);
 
-var scotty = new ShowDog("Scotty", "Scottish Terrier", 15, "Cookie");
+var simon = new SpaceRobot("Simon", 2009, "Carla Diana", "Earth");
 
-scotty.stack();
-scotty.bark();
-scotty.groom();
-scotty.gait("Canter");
-
-console.log(scotty.league);
-console.log(scotty.species);
+simon.makeCoffee();
+simon.blinkLights();
+simon.speak();
