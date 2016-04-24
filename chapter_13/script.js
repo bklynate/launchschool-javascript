@@ -72,31 +72,68 @@
 // console.log(scotty.league);
 // console.log(scotty.species);
 
-function SpaceRobot(name, year, owner, homePlanet) {
+// function SpaceRobot(name, year, owner, homePlanet) {
+//   this.name = name;
+//   this.year = year;
+//   this.owner = owner;
+//   this.homePlanet = homePlanet;
+// }
+
+// SpaceRobot.prototype = new Robot();
+
+// SpaceRobot.prototype.speak = function() {
+//   alert(this.name + " says Sir, If I may venture an opinion...");
+// }
+
+// SpaceRobot.prototype.pilot = function() {
+//   alert(this.name + " says Thrusters? Are they important?")
+// }
+
+// var c3po = new SpaceRobot("C3PO", 1977, "Luke Skywalker", "Tatooine");
+
+// c3po.speak();
+// c3po.pilot();
+// console.log(c3po.name + " was made by " + c3po.maker);
+
+// var simon = new SpaceRobot("Simon", 2009, "Carla Diana", "Earth");
+
+// simon.makeCoffee();
+// simon.blinkLights();
+// simon.speak();
+
+function Dog(name, breed, weight) {
   this.name = name;
-  this.year = year;
-  this.owner = owner;
-  this.homePlanet = homePlanet;
+  this.breed = breed;
+  this.weight = weight;
 }
 
-SpaceRobot.prototype = new Robot();
+Dog.prototype.species = "Canine";
+Dog.prototype.bark = function() { console.log("Woof!"); }
+Dog.prototype.run = function() { console.log("Run!"); }
+Dog.prototype.wag = function() { console.log("Wag!"); }
 
-SpaceRobot.prototype.speak = function() {
-  alert(this.name + " says Sir, If I may venture an opinion...");
+function ShowDog(name, breed, weight, handler) {
+  Dog.call(this, name, breed, weight);
+  this.handler = handler;
 }
 
-SpaceRobot.prototype.pilot = function() {
-  alert(this.name + " says Thrusters? Are they important?")
-}
+ShowDog.prototype = new Dog();
 
-var c3po = new SpaceRobot("C3PO", 1977, "Luke Skywalker", "Tatooine");
+ShowDog.prototype.league = "Webville";
 
-c3po.speak();
-c3po.pilot();
-console.log(c3po.name + " was made by " + c3po.maker);
+ShowDog.prototype.stack = function() { console.log("Stack"); }
+ShowDog.prototype.bait = function() { console.log("Bait"); }
+ShowDog.prototype.gait = function(kind) { console.log(kind + "ing"); }
+ShowDog.prototype.groom = function() { console.log("Groom"); }
+ShowDog.prototype.constructor = ShowDog;
 
-var simon = new SpaceRobot("Simon", 2009, "Carla Diana", "Earth");
+var fido = new Dog("Fido", "Mixed", 38);
+if (fido instanceof Dog) { console.log("Fido is a Dog"); }
+if (fido instanceof ShowDog) {console.log("Fido is a ShowDog"); }
 
-simon.makeCoffee();
-simon.blinkLights();
-simon.speak();
+var scotty = new ShowDog("Scotty", "Scottish Terrier", 15, "Cookie");
+if (scotty instanceof Dog) { console.log("Scotty is a Dog"); }
+if (scotty instanceof ShowDog) {console.log("Scotty is a ShowDog"); }
+
+console.log("Fido constructor is " + fido.constructor);
+console.log("Scotty constructor is " + scotty.constructor);
