@@ -101,39 +101,82 @@
 // simon.blinkLights();
 // simon.speak();
 
-function Dog(name, breed, weight) {
+// function Dog(name, breed, weight) {
+//   this.name = name;
+//   this.breed = breed;
+//   this.weight = weight;
+// }
+
+// Dog.prototype.species = "Canine";
+// Dog.prototype.bark = function() { console.log("Woof!"); }
+// Dog.prototype.run = function() { console.log("Run!"); }
+// Dog.prototype.wag = function() { console.log("Wag!"); }
+
+// function ShowDog(name, breed, weight, handler) {
+//   Dog.call(this, name, breed, weight);
+//   this.handler = handler;
+// }
+
+// ShowDog.prototype = new Dog();
+
+// ShowDog.prototype.league = "Webville";
+
+// ShowDog.prototype.stack = function() { console.log("Stack"); }
+// ShowDog.prototype.bait = function() { console.log("Bait"); }
+// ShowDog.prototype.gait = function(kind) { console.log(kind + "ing"); }
+// ShowDog.prototype.groom = function() { console.log("Groom"); }
+// ShowDog.prototype.constructor = ShowDog;
+
+// var fido = new Dog("Fido", "Mixed", 38);
+// if (fido instanceof Dog) { console.log("Fido is a Dog"); }
+// if (fido instanceof ShowDog) {console.log("Fido is a ShowDog"); }
+
+// var scotty = new ShowDog("Scotty", "Scottish Terrier", 15, "Cookie");
+// if (scotty instanceof Dog) { console.log("Scotty is a Dog"); }
+// if (scotty instanceof ShowDog) {console.log("Scotty is a ShowDog"); }
+
+// console.log("Fido constructor is " + fido.constructor);
+// console.log("Scotty constructor is " + scotty.constructor);
+
+function Robot(name, year, owner) {
   this.name = name;
-  this.breed = breed;
-  this.weight = weight;
+  this.year = year;
+  this.owner = owner;
 }
 
-Dog.prototype.species = "Canine";
-Dog.prototype.bark = function() { console.log("Woof!"); }
-Dog.prototype.run = function() { console.log("Run!"); }
-Dog.prototype.wag = function() { console.log("Wag!"); }
-
-function ShowDog(name, breed, weight, handler) {
-  Dog.call(this, name, breed, weight);
-  this.handler = handler;
+Robot.prototype.toString = function () {
+  return this.name + " Robot belonging to " + this.owner;
 }
 
-ShowDog.prototype = new Dog();
+var toy = new Robot("Toy", 2013, "Avary");
+console.log(toy.toString());
 
-ShowDog.prototype.league = "Webville";
+String.prototype.cliche = function() {
+  var cliche = ["lock and load", "touch base", "open the kimono"];
 
-ShowDog.prototype.stack = function() { console.log("Stack"); }
-ShowDog.prototype.bait = function() { console.log("Bait"); }
-ShowDog.prototype.gait = function(kind) { console.log(kind + "ing"); }
-ShowDog.prototype.groom = function() { console.log("Groom"); }
-ShowDog.prototype.constructor = ShowDog;
+  for (var i = 0; i < cliche.length; i++) {
+    var index = this.indexOf(cliche[i]);
+    if (index >= 0) { return true; }
+  }
 
-var fido = new Dog("Fido", "Mixed", 38);
-if (fido instanceof Dog) { console.log("Fido is a Dog"); }
-if (fido instanceof ShowDog) {console.log("Fido is a ShowDog"); }
+  return false;
+};
 
-var scotty = new ShowDog("Scotty", "Scottish Terrier", 15, "Cookie");
-if (scotty instanceof Dog) { console.log("Scotty is a Dog"); }
-if (scotty instanceof ShowDog) {console.log("Scotty is a ShowDog"); }
+var sentences = ["I'll send my car around to pick you up.",
+"Let's touch base in the morning and see where we are",
+"We don't want to open the kimono, we just want to inform them."];
 
-console.log("Fido constructor is " + fido.constructor);
-console.log("Scotty constructor is " + scotty.constructor);
+for (var i = 0; i < sentences.length; i++) {
+  var phrase = sentences[i];
+  if (phrase.cliche()) {
+    console.log("CLICHE ALERT: " + phrase);
+  }
+}
+
+String.prototype.palindrome = function() {
+  return this == this.split("").reverse().join("");
+}
+
+console.log("dad".palindrome());
+console.log("dad");
+console.log("dad".split("").reverse().join(""));
