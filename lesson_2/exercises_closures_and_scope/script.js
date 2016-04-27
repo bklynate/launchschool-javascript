@@ -16,7 +16,7 @@ var groceries = {
 function getTotal(cart) {
   var total = 0;
 
-  for (fruit in cart) {
+  for (var fruit in cart) {
     total += cart[fruit];
   }
 
@@ -33,3 +33,35 @@ function removeLastItem(arr) {
 var arr = [1, 2, 3];
 removeLastItem(arr);
 console.log(arr);
+
+var arr = [1, 2, 3];
+
+function average() {
+  var total = 0;
+  for (var value in this) {
+    total += this[value];
+  }
+
+  return total / this.length;
+}
+
+console.log(average.call(arr));
+console.log(average.apply(arr));
+
+var temperatures = [53, 86, 12, 43];
+var averageTemp = average.bind(temperatures);
+console.log(averageTemp());
+
+function average() {
+  console.log(this);
+  var total = 0;
+  for (var value in this) {
+    if (!isNaN(this[value])) { total += this[value]; }
+  }
+
+  return total / this.length;
+}
+
+var temperatures = [53, 86, 12, 43];
+temperatures.average = average;
+console.log(temperatures.average());
