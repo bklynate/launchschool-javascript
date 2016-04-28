@@ -21,18 +21,18 @@ var words = p.replace(/[,.':]/g, "").toLowerCase().split(" ");
 var most_common_word;
 var total_words_count = 0;
 
-for (var i = 0, length = words.length; i < length; i++) {
-  if (word_counts[words[i]] === undefined) {
-    word_counts[words[i]] = 1;
+words.forEach(function(word) {
+  if (word in word_counts) {
+    word_counts[word] += 1;
   } else {
-    word_counts[words[i]] += 1;
+    word_counts[word] = 1;
   }
-}
+});
 
 
 
 for (var word in word_counts) {
-  if (word_counts[word] > word_counts[most_common_word] || most_common_word === undefined) {
+  if (word_counts[word] > word_counts[most_common_word] || !most_common_word) {
     most_common_word = word;
   }
 
