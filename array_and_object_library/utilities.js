@@ -1,4 +1,29 @@
 (function() {
+  var findObj = function(element, props, multiple) {
+    var match = multiple? [] : undefined;
+
+    element.some(function(obj) {
+      var all_match = true;
+
+      for (var prop in props) {
+        if (!(prop in obj) || !(props[prop] === obj[prop])) {
+          all_match = false;
+        }
+      }
+
+      if (all_match) {
+        if (multiple) {
+          match.push(obj);
+        } else {
+          match = obj;
+          return true;
+        }
+      }
+    });
+
+    return match;
+  };
+
   var _ = function(element) {
     var u = {
       first: function() {
@@ -49,7 +74,41 @@
         }
 
         return samples;
-      }
+      },
+      findWhere: function(props) {
+        return findObj(element, props, false);
+      },
+
+      where: function(props) {
+        return findObj(element, props, true);
+      },
+      pluck: function(key) {
+        var values = [];
+
+        element.forEach(function(obj) {
+          if (obj.hasOwnProperty(key)) { values.push(obj[key]); }
+        });
+
+        return values;
+      },
+      keys: function() {
+        var keys = [];
+
+        for (var key in element) {
+          keys.push(key);
+        }
+
+        return keys;
+      },
+      values: function() {
+        var values = [];
+
+        for (var key in element) {
+          values.push(element[key]);
+        }
+
+        return values;
+      },
     };
 
     return u;
@@ -69,6 +128,22 @@
     }
 
     return range;
+  };
+
+  _.extend = function() {
+    var args = Array.prototype.slice.call(arguments);
+
+    if (args.length > 1) {
+      var old_obj = args.pop();
+      var new_obj = args[args.length - 1];
+
+      for (var prop in old_obj) {
+        new_obj[prop] = old_obj[prop];
+      }
+      return _.extend(args);
+    } else {
+      return args[0];
+    }
   };
 
   window._ = _;
