@@ -135,8 +135,12 @@
       },
       has: function(prop) {
         return {}.hasOwnProperty.call(element, prop);;
-      }
+      },
     };
+
+    (["isElement", "isArray", "isObject", "isFunction", "isString", "isNumber", "isBoolean"]).forEach(function(method) {
+      u[method] = function() { _[method].call(u, element) };
+    });
 
     return u;
   };
@@ -167,6 +171,34 @@
     }
 
     return args.length === 1 ? new_obj : _extend.apply(_, args);
+  };
+
+  _.isElement = function(obj) {
+    return obj !== undefined && obj.nodeType === 1;
+  };
+
+  _.isArray = function(obj) {
+    return obj !== undefined && obj.constructor === Array;
+  };
+
+  _.isObject = function(obj) {
+    return obj !== undefined && (typeof obj === "object" || typeof obj === "function");
+  };
+
+  _.isFunction = function(obj) {
+    return obj !== undefined && typeof obj === "function";
+  };
+
+  _.isBoolean = function(obj) {
+    return obj !== undefined && (typeof obj === "boolean" || obj.constructor === Boolean);
+  };
+
+  _.isString = function(obj) {
+    return obj !== undefined && (typeof obj === "string" || obj.constructor === String);
+  };
+
+  _.isNumber = function(obj) {
+    return obj !== undefined && (typeof obj === "number" || obj.constructor === Number);
   };
 
   window._ = _;
