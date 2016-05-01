@@ -109,6 +109,33 @@
 
         return values;
       },
+      pick: function() {
+        var args = [].slice.call(arguments);
+        var new_obj = Object.create(element);
+
+        args.forEach( function(obj) {
+          for (var prop in obj) {
+            new_obj[prop] = obj[prop];
+          }
+        })
+
+        return new_obj;
+      },
+      omit: function() {
+        var args = [].slice.call(arguments);
+        var new_obj = {};
+
+        for (var prop in element) {
+          if (args.indexOf(prop) === -1) {
+            new_obj[prop] = element[prop];
+          }
+        }
+
+        return new_obj;
+      },
+      has: function(prop) {
+        return {}.hasOwnProperty.call(element, prop);;
+      }
     };
 
     return u;
@@ -131,19 +158,15 @@
   };
 
   _.extend = function() {
-    var args = Array.prototype.slice.call(arguments);
+    var args = [].slice.call(arguments);
+    var old_obj = args.pop();
+    var new_obj = args[args.length - 1];
 
-    if (args.length > 1) {
-      var old_obj = args.pop();
-      var new_obj = args[args.length - 1];
-
-      for (var prop in old_obj) {
-        new_obj[prop] = old_obj[prop];
-      }
-      return _.extend(args);
-    } else {
-      return args[0];
+    for (var prop in old_obj) {
+      new_obj[prop] = old_obj[prop];
     }
+
+    return args.length === 1 ? new_obj : _extend.apply(_, args);
   };
 
   window._ = _;
