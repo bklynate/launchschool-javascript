@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en-us">
+  <head>
+    <title>Title</title>
+    <meta charset="utf-8" />
+    <style rel="reset.css"></style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+    <script src="script.js"></script>
+    <style>
+      html, body {
+        background: #6D0A21;
+        font: normal 1rem monospace;
+      }
+
+      h2 {
+        color: #2CA879;
+        font-size: 3rem;
+      }
+
+      main {
+        margin: 0 auto;
+        margin-top: 20px;
+        background: white;
+        max-width: 400px;
+        padding: 15px;
+      }
+
+      input[type="number"] {
+        padding: 5px;
+        font: normal 1rem monospace;
+        width: 100px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <main>
+      <h1>Calculator</h1>
+      <h2 id="result">0</h2>
+      <form action="" method="post">
+        <input type="number" id="num_1" name="num_1" />
+        <select id="operator" name="operator">
+          <option>+</option>
+          <option>-</option>
+          <option>*</option>
+          <option>/</option>
+        </select>
+        <input type="number" id="num_2" name="num_2" />
+        <input type="submit" value="=" />
+      </form>
+    </main>
+  </body>
+</html>

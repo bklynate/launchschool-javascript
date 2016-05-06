@@ -41,4 +41,3 @@ $(function() {
     $("input[type=number]").val("");
   }
 });
-
