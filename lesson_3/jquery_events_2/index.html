@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en-us">
+  <head>
+    <title>Title</title>
+    <meta charset="utf-8" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+    <script src="script.js"></script>
+    <style>
+      html, body {
+        padding: 25px 0;
+        margin: 0;
+        background: #780e24;
+      }
+
+      h1 {
+        font-size: 1.4em;
+        color: #16997c;
+      }
+
+      main {
+        max-width: 450px;
+        padding: 20px;
+        margin: 0 auto;
+        background: white;
+        box-sizing: border-box;
+      }
+
+      fieldset {
+        border: none;
+      }
+
+      input[type=text] {
+        width: 40px;
+        height: 30px;
+        font: normal 24px monospace;
+        border: 1px solid #cccccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+      }
+
+      input[type="submit"] {
+        width: 30px;
+        height: 30px;
+        border: 1px solid #cccccc;
+        border-radius: 4px;
+        background: linear-gradient(to bottom, #f0f0f0 0%, #d5d5d5 100%);
+      }
+
+      #accordion {
+        display: none;
+      }
+    </style>
+  </head>
+
+  <body>
+    <main>
+      <form action="" method="get">
+        <fieldset>
+          <h1>Type a key to toggle the accordion</h1>
+          <input type="text" id="key" name="key" maxlength="1" /><br>
+          <input type="submit" value="Set" />
+        </fieldset>
+      </form>
+      <p><a href="#">Toggle Accordion</a></p>
+      <div id="accordion">
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus quis arcu dolor. Sed velit lacus, rhoncus nec mi ac, venenatis volutpat leo. Vestibulum vestibulum at libero a venenatis. Aenean pulvinar urna arcu, eget elementum lectus scelerisque tempus. Ut elementum rutrum cursus. Nunc a diam velit. Vivamus eleifend purus a ligula pharetra suscipit. Ut volutpat risus ut risus viverra, eget suscipit dui ultricies. Maecenas sodales dui vitae interdum ultricies. Nullam porta turpis at enim viverra vulputate. Praesent ac mi pellentesque, viverra lacus id, egestas risus. Vestibulum lorem magna, suscipit sed aliquet non, accumsan in justo. Vivamus mattis congue massa a pellentesque. Fusce a ante commodo, porta nulla non, lacinia ex.</p>
+      </div>
+    </main>
+  </body>
+</html>
