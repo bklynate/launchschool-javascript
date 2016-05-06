@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en-us">
+  <head>
+    <title>Title</title>
+    <meta charset="utf-8" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+    <script src="script.js"></script>
+    <style rel="reset.css"></style>
+    <style>
+      body, html {
+        text-align: center;
+        background: #6CD8B3;
+        font: normal 1rem sans-serif;
+      }
+
+      main {
+        background: white;
+        max-width: 400px;
+        margin: 0 auto;
+        margin-top: 30px;
+        padding: 20px 10px;
+      }
+
+      h1 {
+        color: #BA1A40;
+      }
+
+      p {
+        color: #6CD8B3;
+      }
+
+      a {
+        color: #BA1A40
+      }
+
+      fieldset {
+        border: none;
+      }
+
+      input[type="number"] {
+        height: 50px;
+        width: 70px;
+        font-size: 30px;
+        text-align: center;
+        margin-bottom: 10px;
+      }
+
+      input[type="submit"] {
+        width: 100%;
+        color: white;
+        background: linear-gradient(to bottom, #B6193C 0%, #720F25 100%);
+        border: 1px #731933 solid;
+        border-radius: 10px;
+        font-size: 1.5rem;
+      }
+    </style>
+  </head>
+
+  <body>
+    <main>
+      <h1>Number Guessing Game</h1>
+      <p id="message"></p>
+      <form action="" method="post">
+        <fieldset>
+          <input type="number" min="1" max="100" name="guess" />
+          <input type="submit" val="Guess!" />
+        </fieldset>
+      </form>
+      <a href="#">New game</a>
+    </main>
+  </body>
+</html>
