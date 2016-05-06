@@ -64,11 +64,15 @@ input {
 li {
   color: #1FA286;
   list-style-type: disc;
-  list-style-position: inside;
   border-bottom: 1px dotted gray;
   padding: 10px 0;
+  margin-left: 30px;
 }
 
 li:last-child {
   border: none;
+}
+
+@media print {
+  form { display: none; }
 }
