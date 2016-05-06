@@ -1,17 +1,21 @@
 html, body {
   background: #69D2BA;
-  font: normal 1rem sans-serif;
+  font: normal 1rem Helvetica, Arial, sans-serif;
+  color: #1FA286;
 }
 
 body {
-  padding: 20px;
+  padding: 25px 0;
+  margin: 0;
 }
 
 main {
+  display: block;
   background: white;
   margin: 0 auto;
   padding: 20px;
-  max-width: 300px;
+  max-width: 450px;
+  box-sizing: border-box;
 }
 
 h1 {
@@ -23,40 +27,42 @@ h1 {
 }
 
 h2 {
-  color: #1FA286;
   font-size: 1.5rem;
   font-weight: bold;
   margin-bottom: 20px;
 }
 
 label {
-  color: #1FA286;
-  font-size: 0.9rem;
   display: block;
   clear: both;
+  font-size: 0.9rem;
   margin-bottom: 10px;
 }
 
-input {
+input[type="text"] {
   display: block;
   clear: both;
   font-size: 1.3rem;
-  margin: 5px 0 10px 0;
-  height: 26px;
+  margin: 5px 0 20px 0;
+  height: 50px;
   width: 100%;
+  box-sizing: border-box;
+  padding: 0 5px;
 }
 
-#quantity {
+input#quantity {
   width: 80px;
 }
 
-#submit {
+input#submit {
   background: linear-gradient(to bottom, #D0234A 0%, #82102B 100%);
   border: 1px solid #9B1634;
+  font-size: 1.3rem;
   border-radius: 10px;
   vertical-align: middle;
   color: white;
   padding: 10px;
+  width: 100%;
   height: 100%;
   margin-bottom: 50px;
 }
