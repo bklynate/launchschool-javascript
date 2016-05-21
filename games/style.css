@@ -1,0 +1,45 @@
+body {
+  font: normal 14px Arial, Helvetica, sans-serif;
+  background: #EFDF96;
+}
+
+main {
+  max-width: 1000px;
+  margin: 0 auto;
+  background: white;
+  padding: 20px;
+  overflow: auto;
+  box-sizing: border-box;
+}
+
+h1 {
+  font-size: 24px;
+  font-style: bold;
+  margin-bottom: 35px;
+}
+
+#sidebar {
+  float: left;
+  width: 20%;
+  padding: 40px 0;
+}
+
+#sidebar li {
+  padding: 2px 0;
+}
+
+#content {
+  width: 80%;
+  float: right;
+}
+
+#content ul { width: 100%; }
+
+#content li {
+  border-bottom: solid 1px #ECEDEE;
+  padding: 10px 0 10px 15px;
+}
+
+#content li:last-child {
+  border-bottom: none;
+}
