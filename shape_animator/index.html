@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en-us">
+  <head>
+    <title>Title</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="reset.css" />
+    <link rel="stylesheet" href="style.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+    <script src="script.js"></script>
+  </head>
+
+  <body>
+    <main>
+      <div id="canvas">
+      </div>
+      <p>
+        <a id="start" href="#">Start</a>
+        |
+        <a id="stop" href="#">Stop</a>
+      </p>
+
+      <form action="" method="post">
+        <fieldset>
+          <h1>Add a shape</h1>
+
+          <h2>Type</h2>
+          <ul>
+            <li><label><input type="radio" name="type" value="square">Square</input></label></li>
+            <li><label><input type="radio" name="type" value="circle">Circle</input></label></li>
+            <li><label><input type="radio" name="type" value="star">Star</input></label></li>
+          </ul>
+
+          <dl>
+            <dt>
+              <label for="starting_x"><h2>Starting Point</h2></label>
+            </dt>
+
+            <dd>
+              <input type="number" name="starting_x" placeholder="x:"/>
+              <input type="number" name="starting_y" placeholder="y:"/>
+            </dd>
+          </dl>
+
+          <dl>
+            <dd>
+              <label for="ending_x">
+                <h2>Ending Point</h2>
+              </label>
+            </dd>
+
+            <dt>
+              <input type="number" name="ending_x" placeholder="x:"/>
+              <input type="number" name="ending_y" placeholder="y:"/>
+            </dt>
+          </dl>
+          <input id="submit" type="submit" value="Add" />
+        </fieldset>
+      </form>
+    </main>
+  </body>
+</html>
