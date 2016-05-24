@@ -40,7 +40,7 @@ h1 {
   padding: 10px 0 10px 15px;
 }
 
-#content li:last-child {
+#content li:not([style*="display: none"]):last-child {
   border-bottom: none;
 }
 

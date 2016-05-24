@@ -74,6 +74,4 @@ $(function addHoverClass() {
   $("#content li").hover(function() {
     $(this).toggleClass("hover")
   });
-
-
 });
