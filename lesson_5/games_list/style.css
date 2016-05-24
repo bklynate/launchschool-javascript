@@ -43,3 +43,8 @@ h1 {
 #content li:last-child {
   border-bottom: none;
 }
+
+.hover {
+  background-color: green;
+  color: white;
+}

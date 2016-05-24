@@ -40,19 +40,40 @@ var catalog = [{
     "category": "Xbox One"
   }];
 
-$(function addListItems() {
+var $items;
+
+$(function addCatalogItems() {
   $ul = $("#content ul");
 
   catalog.forEach(function(item) {
     $ul.append('<li data-id="' + item.id + '">' + item.title + ' for ' + item.category);
   });
+
+  $items = $("#content li");
 });
 
-$(function addCheckBoxHandler() {
-  $("input[type=checkbox]").change(function(e) {
-    e.preventDefault();
-    var category = $(this).val();
 
-    $("#content ")
+
+$(function addCheckBoxHandler() {
+  $(":checkbox").change(function() {
+    var $checkbox = $(this);
+    var checked = $checkbox.is(":checked");
+    var category = $checkbox.val();
+    var category_items = catalog.filter(function(item) {
+      return item.category === category;
+    });
+
+    category_items.forEach(function(item) {
+      console.log(item.title);
+      $items.filter("[data-id=" + item.id + "]").toggle(checked);
+    });
   });
+});
+
+$(function addHoverClass() {
+  $("#content li").hover(function() {
+    $(this).toggleClass("hover")
+  });
+
+
 });
