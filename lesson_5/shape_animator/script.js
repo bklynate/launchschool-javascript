@@ -28,15 +28,21 @@ function drawShape(s) {
   $("#canvas").append($s);
 }
 
-function resetShapes() {
-  var $canvas = $("#canvas");
+function resetShape($e) {
+  var data = $e.data();
 
-  $canvas.empty();
-  shapes.forEach(function(s) { drawShape(s); });
+  $e.css({
+    left: +data.start_x,
+    top: +data.start_y
+  });
+}
+
+function resetShapes() {
+  var $shapes = $("#canvas > div");
+  $shapes.each(function($s) { resetShape($s) });
 }
 
 function animateCanvas() {
-  resetShapes();
   $shapes = $("#canvas > div")
   $shapes.each(animateElement);
 }
@@ -44,7 +50,18 @@ function animateCanvas() {
 function animateElement() {
   var $e = $(this);
   var data = $e.data();
-  $e.animate({ left: data.ending_x, top: data.ending_y });
+
+  resetShape($e);
+
+  $e.animate({
+    left: data.ending_x,
+    top: data.ending_y,
+  }, 1000);
+}
+
+function stopAnimation() {
+  $shapes = $("#canvas > div");
+  $shapes.stop();
 }
 
 $(function handleForm() {
@@ -70,6 +87,6 @@ $(function handleStart() {
 $(function handleStop() {
   $("#stop").click(function(e) {
     e.preventDefault();
-    resetShapes();
+    stopAnimation();
   });
 });
